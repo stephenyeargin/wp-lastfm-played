@@ -8,7 +8,6 @@ Version: 1.0
 Author URI: http://stephenyeargin.com/
 */
 
-
 /**
  * LastFmSidebar Class
  */
