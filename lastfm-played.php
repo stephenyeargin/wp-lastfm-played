@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Last.fm Played
-Plugin URI: http://stephenyeargin.com/blog/tag/plugins/
+Plugin URI: https://github.com/stephenyeargin/wp-lastfm-played
 Description: Simple feed reader for Last.fm
 Author: Stephen Yeargin
 Version: 1.0
