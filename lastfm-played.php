@@ -78,9 +78,9 @@ class LastFmSidebar {
     
     // Exploding song data into variables
     $info = explode(' – ',$item->get_title());
-      $artist= htmlentities($info[0]);
-      $song = htmlentities($info[1]);
-      $url   = $item->get_link();
+      $artist = htmlentities($info[0], ENT_COMPAT, 'UTF-8', false);
+      $song = htmlentities($info[1], ENT_COMPAT, 'UTF-8', false);
+      $url = $item->get_link();
       $played = date('m/d/Y h:i a', strtotime($item->get_date())+$this->config['gmt_offset']);
     
     // Loading template and parsing template
