@@ -2,9 +2,9 @@
 /*
 Plugin Name: Last.fm Played
 Plugin URI: https://github.com/stephenyeargin/wp-lastfm-played
-Description: Simple feed reader for Last.fm
+Description: Simple Last.fm feed reader for WordPress.
 Author: Stephen Yeargin
-Version: 1.0
+Version: 1.1
 Author URI: http://stephenyeargin.com/
 */
 
@@ -15,7 +15,7 @@ class LastFmSidebar {
   
   function __construct() {
     $this->config = array();
-    $this->config['template']= '<li><a href="%url%" title="Played: %played%">%song%</a><br /><small>%artist%</small></li>';
+    $this->config['template']= '<li><a href="%url%" title="Played: %played%">%song%</a><br /><small>%artist%</small></li>' . PHP_EOL;
     $this->config['error']= '<li>Unable to reach Last.fm feed for "%username%"</li>';
     $this->config['username'] = 'yearginsm'; // default 
     $this->config['count'] = 5; // default
@@ -78,10 +78,10 @@ class LastFmSidebar {
     
     // Exploding song data into variables
     $info = explode(' – ',$item->get_title());
-      $artist = htmlentities($info[0], ENT_COMPAT, 'UTF-8', false);
-      $song = htmlentities($info[1], ENT_COMPAT, 'UTF-8', false);
+      $artist= ($info[0]);
+      $song = ($info[1]);
       $url = $item->get_link();
-      $played = date('m/d/Y h:i a', strtotime($item->get_date())+$this->config['gmt_offset']);
+      $played = date(get_option('date_format') . ' ' . get_option('time_format'), strtotime($item->get_date())+$this->config['gmt_offset']);
     
     // Loading template and parsing template
     $html = $this->config['template'];
